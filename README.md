@@ -36,3 +36,8 @@ Based on our applications features and functionalities along with our personal i
 
 ## Prototype
 [Click Here](https://www.figma.com/proto/G3g492pap029OgUpMgprehdh/Vid-Notes-2?scaling=min-zoom&node-id=1%3A2) to view prototype
+
+
+## Strech Goals
+- Sign in with Google
+- Search notes with search bar
