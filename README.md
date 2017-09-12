@@ -33,6 +33,9 @@ Based on our applications features and functionalities along with our personal i
 ## Architecture
 ![Image](https://api.monosnap.com/rpc/file/download?id=OtioxqrafP1I69wJ605XDy84067VTB)
 
+## Database Schema
+![Image](https://api.monosnap.com/rpc/file/download?id=R5yLxDJ0UFuhuGd8IpK5jy3fObkuXG)
+
 
 ## Prototype
 [Click Here](https://www.figma.com/proto/G3g492pap029OgUpMgprehdh/Vid-Notes-2?scaling=min-zoom&node-id=1%3A2) to view prototype
