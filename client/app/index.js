@@ -1,10 +1,13 @@
 import React from 'react';
 import {render} from 'react-dom';
-import AwesomeComponent from './AwesomeComponent.jsx';
+import URLInput from './URLInput';
+import Video from './Video';
+import Notes from './Notes';
 
-const hi = (<div>
-  <h1>Hi world</h1>
-  <AwesomeComponent />
-</div>);
+const combine = (<div className="components">
+  <URLInput />
+  <Video />
+  <Notes />
+</div>)
 
-render(hi, document.getElementById('root'));
+render(combine, document.getElementById('root'));
