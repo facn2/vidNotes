@@ -1,10 +1,19 @@
 import React from 'react';
 import {render} from 'react-dom';
-import AwesomeComponent from './AwesomeComponent.jsx';
+import NavbarComponent from './NavbarComponent.jsx';
+import Card from './Card.jsx';
+import AddSearchComponent from './AddSearchComponent.jsx';
 
-const hi = (<div>
-  <h1>Hi world</h1>
-  <AwesomeComponent />
+const mainComponents = (<div>
+  <NavbarComponent />
+  <AddSearchComponent />
+  <Card />
+ <Card />
+<Card />
+<Card />
+<Card />
+<Card />
+
 </div>);
 
-render(hi, document.getElementById('root'));
+render(mainComponents, document.getElementById('root'));
