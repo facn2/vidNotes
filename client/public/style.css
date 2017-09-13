@@ -6,6 +6,11 @@ header {
    height: 70px;
 }
 
+<<<<<<< HEAD
+.components{
+  background-color: lightblue;
+}
+=======
 #header-inner {
    max-width: 1200px;
    margin: 0 auto;
@@ -143,3 +148,4 @@ nav ul li a:hover {
     top: -62px;
     right: 51px;
  }
+>>>>>>> master
