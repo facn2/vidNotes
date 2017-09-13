@@ -8,7 +8,7 @@ export default class Video extends Component{
             height="315"
             width="560"
             allowFullScreen></iframe>
-          <h2>Title</h2>
+          <h1>Title</h1>
           <h4>author</h4>
           <h4>Description</h4>
       </div>
