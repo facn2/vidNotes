@@ -1,25 +1,22 @@
 import React from 'react';
 import {render} from 'react-dom';
 import URLInput from './URLInput';
-import Video from './Video';
-import Notes from './Notes';
-import NavbarComponent from './NavbarComponent.jsx';
-import Card from './Card.jsx';
-import AddSearchComponent from './AddSearchComponent.jsx';
+import VideoPage from './VideoPage';
+import VideoGallery from './VideoGallery';
+import NavbarComponent from './NavbarComponent';
+import {Switch, Route, BrowserRouter} from 'react-router-dom';//fuck this shit
 
-const mainComponents = (<div>
-  <NavbarComponent />
-  <AddSearchComponent />
-  <Card />
-  <Card />
-  <Card />
-  <Card />
-  <Card />
-  <Card />
+const Main = (
+  <BrowserRouter>
+    <div>
+      <NavbarComponent />
+      <Switch>
+        <Route exact path='/' component={VideoGallery}/>
+        <Route path="/add" component={URLInput}/>
+        <Route path="/video/:videoId" component={VideoPage}/>
+      </Switch>
+    </div>
+  </BrowserRouter>
+);
 
-  <Video />
-  <Notes />
-  <URLInput />
-</div>);
-
-render(mainComponents, document.getElementById('root'));
+render(Main, document.getElementById('root'));
