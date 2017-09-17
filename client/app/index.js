@@ -12,7 +12,6 @@ const Main = (
       <NavbarComponent />
       <Switch>
         <Route exact path='/' component={VideoGallery}/>
-        <Route path="/add" component={URLInput}/>
         <Route path="/video/:videoId" component={VideoPage}/>
       </Switch>
     </div>

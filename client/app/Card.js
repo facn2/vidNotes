@@ -4,13 +4,12 @@ import React from 'react';
 class CardHeader extends React.Component {
   render() {
     const { image } = this.props;
+    const videoID = image.split('vi/')[1].split('/')[0];
     var style = {
         backgroundImage: 'url(' + image + ')',
     };
     return (
-      <header style={style} id={image} className="card-header">
-        <h4 className="card-header--title">00:45</h4>
-      </header>
+      <header style={style} id={videoID} className="card-header" />
     )
   }
 }
@@ -45,7 +44,8 @@ class Card extends React.Component {
   render() {
     return (
       <article className="card">
-        <CardHeader image={'https://source.unsplash.com/user/erondu/600x400'}/>
+        {console.log('from card', this.props.pic.thumbnail)}
+        <CardHeader image={this.props.pic.thumbnail}/>
         <CardBody title={'YouTube Title Here'} text={'Youtube description with a maximum number of characters goes here'}/>
       </article>
     )
