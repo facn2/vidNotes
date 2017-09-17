@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom';
 
 class CardHeader extends React.Component {
   render() {
@@ -9,7 +9,9 @@ class CardHeader extends React.Component {
         backgroundImage: 'url(' + image + ')',
     };
     return (
-      <header style={style} id={videoID} className="card-header" />
+      <Link to={`/video/${videoID}`}>
+        <header style={style} id={videoID} className="card-header" />
+      </Link>
     )
   }
 }

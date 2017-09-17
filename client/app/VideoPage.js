@@ -6,7 +6,7 @@ export default class VideoPage extends Component{
   render(){
     return (
       <div className="VideoPage">
-        <Video />
+        <Video videoId={this.props.match.params.videoId}/>
         <Notes />
       </div>
     )
