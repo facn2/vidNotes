@@ -25,11 +25,10 @@ class URLInput extends Component{
       <form className="add-video-padding"
         ref={input=>this.form = input}
         onSubmit={this.submitForm}>
-        <label htmlFor="url">Youtube URL</label>
-        <input type="text" id="url"
+        <input className="search-bar" type="text" id="url"
           ref={input=>this.url = input}
-          placeholder="Please enter URL" />
-        <button type="submit" className="add-video-button">Save</button>
+          placeholder="  Copy Paste YouTube URL here" />
+       <button type="submit" className="add-video-button">Import Video</button>
       </form>
     )
   }
