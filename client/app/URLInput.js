@@ -27,7 +27,7 @@ class URLInput extends Component{
         onSubmit={this.submitForm}>
         <input className="search-bar" type="text" id="url"
           ref={input=>this.url = input}
-          placeholder="  Copy & Paste YouTube URL here" />
+          placeholder="  Copy Paste YouTube URL here" />
        <button type="submit" className="add-video-button">Import Video</button>
       </form>
     )
