@@ -6,11 +6,11 @@ import Video from './Video';
 export default class VideoPage extends Component{
   constructor(){
     super();
-    this.state = {timestamp:[], notes:[]}
+    this.state = {timestamp:[], notes:[], goto:0}
   }
 
   componentDidMount(){
-
+    //call to db
   }
 
   getTimestamp = e => {
@@ -25,6 +25,12 @@ export default class VideoPage extends Component{
     this.setState({timestamp, notes});
   }
 
+  goto = time => {
+    this.setState(prevState=>
+    prevState.goto === time?{goto:time + 0.0001}:{goto:time}
+    );
+  }
+
   render(){
     return (
       <div className="VideoPage">
@@ -33,13 +39,15 @@ export default class VideoPage extends Component{
           opts = {{
             height: '515',
             width: '760',
-            // playerVars:{
-            //   start:this.state.timestamp
-            // }
+            playerVars:{
+              start:this.state.goto,
+              autoplay:1
+            }
           }}
           onPause={this.getTimestamp}
           videoId={this.props.match.params.videoId}/>
         <NotesList
+          goto={this.goto}
           onInputChange={this.inputChange}
           noteList={this.state.notes}
           timestamp={this.state.timestamp}/>
