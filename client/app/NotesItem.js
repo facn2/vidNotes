@@ -10,7 +10,7 @@ export default class NotesItem extends Component{
     return (
       <div className="eachNotes">
          <h4>{this.props.content}</h4>
-         {this.props.timestamp &&
+         {this.props.timestamp !== undefined &&
          <p onClick={this.goto}>{formatTime(this.props.timestamp)}</p>}
           <button id="edit">Edit</button>
           <button id="delete">delete</button>

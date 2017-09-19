@@ -46,7 +46,6 @@ class Card extends React.Component {
   render() {
     return (
       <article className="card">
-        {console.log('from card', this.props.pic.thumbnail)}
         <CardHeader image={this.props.pic.thumbnail}/>
         <CardBody title={'YouTube Title Here'} text={'Youtube description with a maximum number of characters goes here'}/>
       </article>
