@@ -6,17 +6,24 @@ const addVideo = videoID => {
   return db.query(insertVideo, [videoID, thumbnail]);
 };
 
+const addNotes = (timestamp, text, video_id) => {
+  const insertNotes = 'INSERT INTO notes (n_timestamp, text_body, video_id) VALUES ($1, $2, $3)';
+  return db.query(insertNotes, [timestamp, text, video_id]);
+};
+
 const getGallery = () => {
-  const getThumbnails = 'SELECT DISTINCT thumbnail FROM videos'; //this is a quick and dirty fix for duplicate entry of video
-  //need to sort videos in desc order as well
+  const getThumbnails = 'SELECT thumbnail FROM videos ORDER BY id DESC';
   return db.query(getThumbnails);
 }
 
-const getNotes = () => {
-  
+const getNotes = video_id => {
+  const getNotes = 'SELECT n_timestamp, text_body FROM notes WHERE video_id = $1';
+  return db.query(getNotes, [video_id]);
 }
 
 module.exports = {
   addVideo,
-  getGallery
+  getGallery,
+  getNotes,
+  addNotes
 }

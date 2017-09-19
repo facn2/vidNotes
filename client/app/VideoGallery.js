@@ -17,8 +17,8 @@ class VideoGallery extends Component{
 
   updateOnInput = input => {
     const currentState = this.state.thumbnails;
-    const newState = currentState.concat(input);
-    console.log('newstate', newState);
+    const addingInput = [input];
+    const newState = addingInput.concat(currentState);
     this.setState({thumbnails: newState});
   }
   //make one cb to input to update state
@@ -28,7 +28,7 @@ class VideoGallery extends Component{
         <div>
           <URLInput onInputChange={this.updateOnInput}/>
         </div>
-        {console.log('render state', this.state.thumbnails)}
+        {/* {console.log('render state', this.state.thumbnails)} */}
         {
           this.state.thumbnails.map((pic, i) => <Card key={i} pic={pic} />)
         }

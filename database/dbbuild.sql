@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS videos (
   id            SERIAL        PRIMARY KEY,
-  video_url     TEXT          NOT NULL, --actually we only need one of them, too lazy to change anyways
+  video_url     TEXT          UNIQUE NOT NULL, --actually we only need one of them, too lazy to change anyways
   thumbnail     TEXT          NOT NULL
 );
 
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS notes (
   id            SERIAL        PRIMARY KEY,
   n_timestamp   INTEGER       NOT NULL,
   text_body     TEXT          NOT NULL,
-  video_id      INTEGER       REFERENCES videos(id) ON UPDATE cascade DEFAULT 1
+  video_id      TEXT          REFERENCES videos(video_url) ON UPDATE cascade
 );
 
 /*
@@ -41,6 +41,6 @@ INSERT INTO videos (video_url, thumbnail) VALUES
 ('MVI87HzfskQ', 'https://img.youtube.com/vi/MVI87HzfskQ/sddefault.jpg');
 
 INSERT INTO notes (n_timestamp, text_body, video_id) VALUES
-(20, 'garbanzo, salt, cumin', 1);
+(20, 'garbanzo, salt, cumin', 'tITwM5GDIAI');
 
 COMMIT;
