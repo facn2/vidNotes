@@ -17,6 +17,10 @@ app.get('/getGallery', (req, resp) => {
   .catch(err => console.log(err));
 });
 
+app.post('/addnotes', (req, res)=>{
+
+});
+
 app.post('/add', (req, res)=>{
   addVideo(req.body.url)
   .then(res => console.log(res))

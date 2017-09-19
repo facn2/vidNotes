@@ -9,9 +9,10 @@ CREATE TABLE IF NOT EXISTS users (
   password      VARCHAR(70)   NOT NULL
 );
 */
+
 CREATE TABLE IF NOT EXISTS videos (
   id            SERIAL        PRIMARY KEY,
-  video_url     TEXT          NOT NULL,
+  video_url     TEXT          NOT NULL, --actually we only need one of them, too lazy to change anyways
   thumbnail     TEXT          NOT NULL
 );
 

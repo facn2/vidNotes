@@ -1,27 +1,36 @@
 import React, {Component} from 'react';
 import YouTube from 'react-youtube';
 import NotesList from './NotesList';
-import Video from './Video';
 
 export default class VideoPage extends Component{
   constructor(){
     super();
-    this.state = {timestamp:[], notes:[], goto:0}
+    this.setIntervalID = [];
+    this.state = {timestamp:[], notes:[], goto:0, currentTime:0}
   }
 
   componentDidMount(){
     //call to db
   }
 
-  getTimestamp = e => {
-    const timestamp = this.state.timestamp.concat(Math.floor(e.target.getCurrentTime()));
-    const notes = this.state.notes.concat(null);
-    this.setState({timestamp, notes});
+  componentWillUnmount(){
+      //fuck this
+      this.setIntervalID.map(id => clearInterval(id));
+      // reason: new listener is added everytime the video is stopped and Played again;
   }
 
-  inputChange = (input, prevTimestamp) => {
+  loopGetTime = e =>
+    this.setIntervalID.push(setInterval(this.getCurrentTime.bind(null, e), 1000))
+
+
+  getCurrentTime = e => {
+    const currentTime = Math.floor(e.target.getCurrentTime());
+    this.setState({currentTime});
+  }
+
+  inputChange = (input, time)=> {
     const notes = this.state.notes.concat(input);
-    const timestamp = prevTimestamp.concat(prevTimestamp[prevTimestamp.length - 1]);
+    const timestamp = this.state.timestamp.concat(time);
     this.setState({timestamp, notes});
   }
 
@@ -34,7 +43,9 @@ export default class VideoPage extends Component{
   render(){
     return (
       <div className="VideoPage">
-        {console.log(this.state)}
+        {/* {console.log(this.state)} */}
+        {/* wasting shit load of memory beocz of the shitty module*/}
+
         <YouTube
           opts = {{
             height: '515',
@@ -44,13 +55,14 @@ export default class VideoPage extends Component{
               autoplay:1
             }
           }}
-          onPause={this.getTimestamp}
+          onPlay={this.loopGetTime}
           videoId={this.props.match.params.videoId}/>
         <NotesList
           goto={this.goto}
           onInputChange={this.inputChange}
           noteList={this.state.notes}
-          timestamp={this.state.timestamp}/>
+          timestamp={this.state.timestamp}
+          currentTime={this.state.currentTime}/>
       </div>
     )
   }

@@ -12,6 +12,10 @@ const getGallery = () => {
   return db.query(getThumbnails);
 }
 
+const getNotes = () => {
+  
+}
+
 module.exports = {
   addVideo,
   getGallery
