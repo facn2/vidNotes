@@ -3,7 +3,8 @@
 
 
 ## Goals
-- Allow users to import videos from YouTube to leave timestamped notes for study and reference purposes
+- Allow users to import videos from YouTube
+- Allow users to to leave timestamped notes on videos for study and reference purposes
 
 
 ## User Journey
