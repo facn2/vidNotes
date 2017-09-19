@@ -21,11 +21,7 @@ export default class NotesList extends Component{
         headers: {'Content-Type':'application/x-www-form-urlencoded'}, //no idea why this work but fuck this
         body: `video_id=${videoId}&text=${notes}&timestamp=${currentTime}`
       })
-      .then(res => res.json(res))
-      .then(res => console.log('from db for notes',res))
       .catch(err => console.log(err));
-
-      // console.log(currentTime, videoId, notes);
     }
     e.target.reset();
   }

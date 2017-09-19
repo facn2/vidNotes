@@ -5,16 +5,15 @@ class URLInput extends Component{
     const videoID = this.url.value.split('=')[1].substr(0,11);
     //need to check userinput nvm that for now
     event.preventDefault();
+
+    this.props.onInputChange({thumbnail: `https://img.youtube.com/vi/${videoID}/sddefault.jpg`});
+
     fetch('/add',
     {
       method: 'POST',
       headers: {'Content-Type':'application/x-www-form-urlencoded'}, //no idea why this work but fuck this
       body: `url=${videoID}`
     })
-    .then(res => res.json(res))
-    .then(res =>
-    this.props.onInputChange({thumbnail: `https://img.youtube.com/vi/${videoID}/sddefault.jpg`})
-    )
     .catch(err => console.log(err));
 
     this.form.reset();
