@@ -5,11 +5,27 @@ export default class NotesList extends Component{
   formInput = e =>{
     e.preventDefault();
     const notes = e.target.textarea.value.trim();
-    const {currentTime, timestamp} = this.props;
+    const {currentTime, timestamp, videoId} = this.props;
+    // console.log(Boolean(timestamp[timestamp.length - 1]));//interesting
     if(!(timestamp[timestamp.length - 1] === undefined && notes === '')){
+      //we allow the user to just log timestamp without notes.
+      //But we don't let them to spam the function without making the first note
       this.props.onInputChange(notes, currentTime);
       //call db to save info
-      const inputTimestamp = timestamp[timestamp.length - 1]; //getting the timestamp for the record
+       //getting the timestamp for the record -- currentTime
+      //text_body -- notes
+      //video_id
+      fetch('/addnotes',
+      {
+        method: 'POST',
+        headers: {'Content-Type':'application/x-www-form-urlencoded'}, //no idea why this work but fuck this
+        body: `video_id=${videoId}&text=${notes}&timestamp=${currentTime}`
+      })
+      .then(res => res.json(res))
+      .then(res => console.log('from db for notes',res))
+      .catch(err => console.log(err));
+
+      // console.log(currentTime, videoId, notes);
     }
     e.target.reset();
   }

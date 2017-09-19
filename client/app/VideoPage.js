@@ -10,7 +10,20 @@ export default class VideoPage extends Component{
   }
 
   componentDidMount(){
-    //call to db
+    //call to db to get notes
+    fetch('/getnotes',
+    {
+      method: 'POST',
+      headers: {'Content-Type':'application/x-www-form-urlencoded'}, //no idea why this work but fuck this
+      body: `video_id=${this.props.match.params.videoId}`
+    })
+    .then(res => res.json(res))
+    .then(res => {
+      const notes = res.map(item => item.text_body);
+      const timestamp = res.map(item => item.n_timestamp);
+      this.setState({notes, timestamp});
+    })
+    .catch(err => console.log(err));
   }
 
   componentWillUnmount(){
@@ -43,8 +56,6 @@ export default class VideoPage extends Component{
   render(){
     return (
       <div className="VideoPage">
-        {/* {console.log(this.state)} */}
-        {/* wasting shit load of memory beocz of the shitty module*/}
 
         <YouTube
           opts = {{
@@ -60,6 +71,7 @@ export default class VideoPage extends Component{
         <NotesList
           goto={this.goto}
           onInputChange={this.inputChange}
+          videoId={this.props.match.params.videoId}
           noteList={this.state.notes}
           timestamp={this.state.timestamp}
           currentTime={this.state.currentTime}/>

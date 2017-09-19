@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 
 class URLInput extends Component{
   submitForm = event =>{
-    const videoID = this.url.value.split('=')[1];
-    //need to check userinput
+    const videoID = this.url.value.split('=')[1].substr(0,11);
+    //need to check userinput nvm that for now
     event.preventDefault();
     fetch('/add',
     {
@@ -12,9 +12,9 @@ class URLInput extends Component{
       body: `url=${videoID}`
     })
     .then(res => res.json(res))
-    .then(res => {console.log('return from db');
+    .then(res =>
     this.props.onInputChange({thumbnail: `https://img.youtube.com/vi/${videoID}/sddefault.jpg`})
-  })
+    )
     .catch(err => console.log(err));
 
     this.form.reset();
