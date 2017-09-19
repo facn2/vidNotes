@@ -93,7 +93,7 @@ header {
    margin-bottom: 20px;
    margin-top: 15px;
    margin-left: 5px;
-   
+
 
 }
 /*.videoNotes button {
@@ -141,7 +141,7 @@ h2 {
    float: left;
    text-align: center;
    display: inline-block;
-   padding: .75em;
+   padding: .75em; 
 }
 
 p {
