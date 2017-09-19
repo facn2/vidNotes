@@ -27,7 +27,7 @@
 Based on our applications features and functionalities along with our personal interests in web development, we have decided to go with the following stack:
 - Express
 - PostgreSQL
-- React + Redux
+- React
 
 
 ## Architecture
@@ -42,8 +42,11 @@ Based on our applications features and functionalities along with our personal i
 
 
 ## Strech Goals
+- User Login
 - Sign in with Google
 - Search notes with search bar
 - Allow users to search notes
 - Allow users to share notes
 - Allow users to reference & study their notes separate from the video page
+- Delete videos on the video gallery page
+- Edit and Delete notes
