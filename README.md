@@ -4,7 +4,6 @@
 
 ## Goals
 - Allow users to import videos from YouTube to leave timestamped notes for study and reference purposes
-- Allow users to search, share and study their notes
 
 
 ## User Journey
@@ -44,3 +43,6 @@ Based on our applications features and functionalities along with our personal i
 ## Strech Goals
 - Sign in with Google
 - Search notes with search bar
+- Allow users to search notes
+- Allow users to share notes
+- Allow users to reference & study their notes separate from the video page
