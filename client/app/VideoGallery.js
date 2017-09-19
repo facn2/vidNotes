@@ -11,7 +11,7 @@ class VideoGallery extends Component{
     //ajax call to get data from db
     fetch('/getGallery')
     .then(res => res.json())
-    .then(res => {console.log(res);this.setState({thumbnails: res})})
+    .then(res => this.setState({thumbnails: res}))
     .catch(err => console.log(err));
   }
 
