@@ -44,7 +44,7 @@ export default class NotesList extends Component{
           <textarea name="notes" id="textarea" cols="50" rows="10" placeholder="Type your note here and click “save” to submit.A timestamp will be added to notes."></textarea>
           <button type="submit">Save</button>
         </form>
-        <div className="leftNotes">
+        <div id="leftNotes">
           {notesWithTimestamps.map((note, i)=> <NotesItem key={i} content={note[0]} timestamp={note[1]} goto={this.goto} />)}
         </div>
       </div>

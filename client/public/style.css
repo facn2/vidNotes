@@ -16,13 +16,15 @@ header {
    /*display: flex;*/
    /*float: right;*/
    margin-right: 60px;
-   margin-top: 30px;
+   /*margin-top: 30px;*/
    /*width: 50%;*/
+   margin-left: 20px;
    border: grey 1px solid;
    /*align-content: center;*/
 }
 .VideoPage {
    display: flex;
+   padding: 40px;
 
 }
 
@@ -44,9 +46,11 @@ header {
 
 .eachNotes {
 
-   width: 100%;
-   min-height: 100px;
+   /*width: 100%;*/
+   min-height: 150px;
    border-bottom: grey 1px solid;
+   /*overflow: auto;*/
+
 }
 
 .eachNotes h4 {
@@ -56,9 +60,9 @@ header {
 .eachNotes p {
    color: white;
    background: #24292e;
-   width: 35px;
-   height: 7px;
-   font-size: 15px;
+   width: 59px;
+   /*height: 7px;*/
+   font-size: 13px;
    float: right;
    margin: -23px auto;
    margin-right: 10px;
@@ -74,10 +78,35 @@ header {
    height: 20px;
    width: 75px;
 
-   margin-top: 45px;
+   margin-top: 95px;
    margin-left: 5px;
 
 }
+
+  .notes-col button{
+   background-color: green;
+   color: white;
+   font-size: 16px;
+   cursor: pointer;
+   height: 40px;
+   width: 75px;
+   margin-bottom: 20px;
+   margin-top: 15px;
+   margin-left: 5px;
+
+
+}
+/*.videoNotes button {
+   margin-top: 4px;
+   margin-left: 10;
+   background-color: green;
+   color: white;
+   font-size: 13px;
+   cursor: pointer;
+   height: 20px;
+   width: 75px;
+   margin-bottom: 20;
+}*/
 
 
 
@@ -112,7 +141,7 @@ h2 {
    float: left;
    text-align: center;
    display: inline-block;
-   padding: .75em;
+   padding: .75em; 
 }
 
 p {
